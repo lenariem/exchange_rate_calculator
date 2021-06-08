@@ -100,11 +100,12 @@ p {
 }
 
 .swap-arrow {
-    width: 18px;    
+    width: 18px;
 }
+
 .rate {
     color: var(--primary-color);
-    font-size: 12px;
+    font-size: 16px;
     padding: 0 10px;
 }
 
@@ -118,10 +119,12 @@ button:focus {
     .container {
         max-width: 500px;
     }
+
     .logo-container {
         width: 150px;
         height: 150px;
     }
+
     .currency input {
         width: 200px;
     }
