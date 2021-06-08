@@ -18,7 +18,6 @@ function calculate() {
         const rate = data.conversion_rates[currency_code2];
         //console.log(rate);
         rateElement.innerText = `1 ${currency_code1} = ${rate} ${currency_code2}`;
-
         amount_two.value = (amount_one.value * rate).toFixed(2);
     })
 }
@@ -33,12 +32,15 @@ function setCurrencyName(currency_name) {
         //console.log("codes:" + data.supported_codes);
         const name = codes.filter(item => item[0].includes(currency_name.value)); 
         //console.log(`filtered: ${name}`);
-        const title = name.map(item => item[1]);        
+        const title = name.map(item => item[1]);
         currency_name.setAttribute("title", title);
     })
 }
 
+
+
 //Event Listeners
+
 currency_one.addEventListener('change', calculate);
 currency_one.addEventListener('mousemove', () => setCurrencyName(currency_one));
 amount_one.addEventListener('input', calculate);
