@@ -14,7 +14,7 @@ function calculate() {
     fetch(`https://v6.exchangerate-api.com/v6/0422b2388e1bd4c628048609/latest/${currency_code1}`)
     .then(res => res.json())
     .then(data => {
-        console.log(data)
+        //console.log(data)
         const rate = data.conversion_rates[currency_code2];
         //console.log(rate);
         rateElement.innerText = `1 ${currency_code1} = ${rate} ${currency_code2}`;
@@ -24,10 +24,26 @@ function calculate() {
 }
 calculate();
 
+//Dynamic title with name of currency
+function setCurrencyName(currency_name) {
+    fetch(`https://v6.exchangerate-api.com/v6/0422b2388e1bd4c628048609/codes`)
+    .then(res => res.json())
+    .then(data => {
+        const codes = data.supported_codes;
+        //console.log("codes:" + data.supported_codes);
+        const name = codes.filter(item => item[0].includes(currency_name.value)); 
+        //console.log(`filtered: ${name}`);
+        const title = name.map(item => item[1]);        
+        currency_name.setAttribute("title", title);
+    })
+}
+
 //Event Listeners
 currency_one.addEventListener('change', calculate);
+currency_one.addEventListener('mousemove', () => setCurrencyName(currency_one));
 amount_one.addEventListener('input', calculate);
 currency_two.addEventListener('change', calculate);
+currency_two.addEventListener('mousemove', () => setCurrencyName(currency_two));
 amount_two.addEventListener('input', calculate);
 
 swap.addEventListener('click', () => {
