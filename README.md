@@ -2,7 +2,8 @@
 ### UI with 2 select lists for countries and 2 inputs for amounts
 
 **to take a look please click this link:** 
- https://lenariem.github.io/exchange_rate_calculator/
+
+https://lenariem.github.io/exchange_rate_calculator/
 
 
 ### Technologies used: 
